@@ -1,0 +1,4 @@
+# Customized
+*.log.*
+*.tmp.*
+*.swp.*
