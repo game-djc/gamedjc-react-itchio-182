@@ -36,11 +36,27 @@ function App() {
     };
   }, []);
 
+  const handleClick = (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => {
+    const svg = e.currentTarget;
+    const rect = svg.getBoundingClientRect();
+
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    // setPlayerPos({ x, y });
+    console.log("position:",x,y)
+  };
+
   return (
     <>
       <div>
         <h1>Game</h1>
-        <svg width="400" height="400" style={{ border: '1px solid black' }}>
+        <svg
+          width="400"
+          height="400"
+          style={{ border: '1px solid black' }}
+          onClick={handleClick}
+        >
           <rect x="0" y="0" width="400" height="400" fill="#000" />
           <image href="/player.png" x={npcPos.x} y={npcPos.y} width="32" height="32" />
         </svg>
